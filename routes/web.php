@@ -1,20 +1,48 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\MenuController as FrontMenuController;
+use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\MenuController as BackendMenuController;
+use App\Http\Controllers\ProfileController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// =====================
+// Frontend
+// =====================
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/menu', [FrontMenuController::class, 'index'])->name('menu.index');
+Route::get('/menu/{menu}', [FrontMenuController::class, 'show'])->name('menu.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// =====================
+// Backoffice (prefix + middleware)
+// =====================
+Route::prefix('backoffice')
+    ->name('backoffice.')
+    ->middleware(['auth','is_admin'])
+    ->group(function () {
+        
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+        // Manajemen user
+        Route::resource('users', UserController::class)->names('users');
+
+        // Manajemen menu (konten kuliner)
+        Route::resource('menus', BackendMenuController::class)->names('menus');
+    });
+
+// =====================
+// Profile (Breeze default)
+// =====================
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// =====================
+// Auth routes (Breeze)
+// =====================
 require __DIR__.'/auth.php';
