@@ -15,6 +15,7 @@ class Menu extends Model
         'price',
         'image',
         'is_published',
+        'is_favorite'
     ];
 
     protected $casts = [

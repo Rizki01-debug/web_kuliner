@@ -11,7 +11,7 @@ class MenuController extends Controller
 {
     public function index()
     {
-        $menus = Menu::orderBy('created_at','desc')->paginate(12);
+        $menus = Menu::orderBy('created_at', 'desc')->paginate(12);
         return view('backend.menus.index', compact('menus'));
     }
 
@@ -20,26 +20,31 @@ class MenuController extends Controller
         return view('backend.menus.create');
     }
 
-public function store(Request $request)
-{
-    $data = $request->validate([
-        'title' => 'required|string|max:255',
-        'description' => 'nullable|string',
-        'price' => 'required|numeric',
-        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-        'is_published' => 'boolean',
-    ]);
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'price' => 'required|numeric|min:0',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'is_published' => 'sometimes|boolean',
+            'is_favorite' => 'sometimes|boolean', // ✅ diperbaiki
+        ]);
 
-    // Simpan file image kalau ada
-    if ($request->hasFile('image')) {
-        $data['image'] = $request->file('image')->store('menus', 'public');
+        // Simpan file image kalau ada
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('menus', 'public');
+        }
+
+        // Default value checkbox (kalau tidak dicentang, dia tidak terkirim)
+        $data['is_published'] = $request->has('is_published');
+        $data['is_favorite']  = $request->has('is_favorite');
+
+        Menu::create($data);
+
+        return redirect()->route('backoffice.menus.index')
+                         ->with('success', 'Menu berhasil ditambahkan!');
     }
-
-    Menu::create($data);
-
-    return redirect()->route('backoffice.menus.index')
-                     ->with('success', 'Menu berhasil ditambahkan!');
-}
 
     public function show(Menu $menu)
     {
@@ -57,24 +62,25 @@ public function store(Request $request)
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
             'price' => 'required|numeric|min:0',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'is_published' => 'sometimes|boolean',
+            'is_favorite' => 'sometimes|boolean', // ✅ ditambahkan
         ]);
 
         if ($request->hasFile('image')) {
-            // hapus file lama bila ada
             if ($menu->image && Storage::disk('public')->exists($menu->image)) {
                 Storage::disk('public')->delete($menu->image);
             }
-            $path = $request->file('image')->store('menus', 'public');
-            $data['image'] = $path;
+            $data['image'] = $request->file('image')->store('menus', 'public');
         }
 
-        $data['is_published'] = $request->has('is_published') ? true : false;
+        $data['is_published'] = $request->has('is_published');
+        $data['is_favorite']  = $request->has('is_favorite');
 
         $menu->update($data);
 
-        return redirect()->route('backoffice.menus.index')->with('success','Menu berhasil diperbarui.');
+        return redirect()->route('backoffice.menus.index')
+                         ->with('success','Menu berhasil diperbarui.');
     }
 
     public function destroy(Menu $menu)
@@ -84,6 +90,8 @@ public function store(Request $request)
         }
 
         $menu->delete();
-        return redirect()->route('backoffice.menus.index')->with('success','Menu berhasil dihapus.');
+
+        return redirect()->route('backoffice.menus.index')
+                         ->with('success','Menu berhasil dihapus.');
     }
 }

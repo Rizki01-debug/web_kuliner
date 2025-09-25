@@ -48,6 +48,9 @@
   <label class="form-check-label" for="is_published">Published</label>
 </div>
 
+ <label>Jadikan Favorit?</label>
+    <input type="checkbox" name="is_favorite" value="1" {{ $menu->is_favorite ? 'checked' : '' }}>
+    <br>
 
   <button class="btn btn-primary">Update</button>
   <a href="{{ route('backoffice.menus.index') }}" class="btn btn-secondary">Batal</a>
