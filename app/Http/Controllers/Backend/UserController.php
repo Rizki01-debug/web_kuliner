@@ -29,21 +29,22 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users.email',
-            'password' => 'required|password|min:8|confirmed',
-            'is_admin' => 'sometimes|boolean',
-        ]);
+public function store(Request $request)
+{
+    $data = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|string|min:8|confirmed',
+        'is_admin' => 'sometimes|boolean',
+    ]);
 
-        $data['password'] = Hash::make($data['password']);
-        $data['is_admin'] = $request->has('is_admin');
+    // Hash password sebelum simpan
+    $data['password'] = bcrypt($data['password']);
 
-        User::create($data);
-        return redirect()->route('backoffice.users.index')->with('success','User dibuat');
-    }
+    User::create($data);
+
+    return redirect()->route('backoffice.users.index')->with('success', 'User berhasil ditambahkan.');
+}
 
     /**
      * Display the specified resource.

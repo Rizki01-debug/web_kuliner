@@ -20,27 +20,26 @@ class MenuController extends Controller
         return view('backend.menus.create');
     }
 
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'image' => 'nullable|image|max:2048',
-            'is_published' => 'sometimes|boolean',
-        ]);
+public function store(Request $request)
+{
+    $data = $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'price' => 'required|numeric',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'is_published' => 'boolean',
+    ]);
 
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('menus', 'public');
-            $data['image'] = $path;
-        }
-
-        $data['is_published'] = $request->has('is_published') ? true : false;
-
-        Menu::create($data);
-
-        return redirect()->route('backoffice.menus.index')->with('success','Menu berhasil dibuat.');
+    // Simpan file image kalau ada
+    if ($request->hasFile('image')) {
+        $data['image'] = $request->file('image')->store('menus', 'public');
     }
+
+    Menu::create($data);
+
+    return redirect()->route('backoffice.menus.index')
+                     ->with('success', 'Menu berhasil ditambahkan!');
+}
 
     public function show(Menu $menu)
     {

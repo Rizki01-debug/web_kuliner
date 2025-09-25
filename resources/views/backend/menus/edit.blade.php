@@ -39,10 +39,15 @@
     <input type="file" name="image" class="form-control">
   </div>
 
-  <div class="form-check mb-3">
-    <input class="form-check-input" type="checkbox" name="is_published" id="is_published" {{ old('is_published', $menu->is_published) ? 'checked' : '' }}>
-    <label class="form-check-label" for="is_published">Published</label>
-  </div>
+<div class="form-check mb-3">
+  <!-- nilai default kalau tidak dicentang -->
+  <input type="hidden" name="is_published" value="0">
+
+  <input class="form-check-input" type="checkbox" name="is_published" id="is_published" value="1"
+    {{ old('is_published') ? 'checked' : '' }}>
+  <label class="form-check-label" for="is_published">Published</label>
+</div>
+
 
   <button class="btn btn-primary">Update</button>
   <a href="{{ route('backoffice.menus.index') }}" class="btn btn-secondary">Batal</a>
