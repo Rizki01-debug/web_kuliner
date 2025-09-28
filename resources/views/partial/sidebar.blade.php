@@ -152,7 +152,7 @@
           <i class="fas fa-users"></i> Users
         </a>
       </li>
-      
+
       <li class="nav-item">
         <a class="nav-link {{ request()->routeIs('backoffice.menus.*') ? 'active' : '' }}" href="{{ route('backoffice.menus.index') }}">
           <i class="fas fa-utensils"></i> Menus
@@ -165,7 +165,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">Pages</a></li>
-          <li><a class="dropdown-item" href="#">Blog</a></li>
+          <li><a class="dropdown-item" href="{{ route('backoffice.about.index') }}">About</a></li>
           <li><a class="dropdown-item" href="#">Media</a></li>
         </ul>
       </li>

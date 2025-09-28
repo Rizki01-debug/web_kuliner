@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\MenuController as FrontMenuController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\MenuController as BackendMenuController;
+use App\Http\Controllers\Frontend\AboutController as FrontAboutController;
 use App\Http\Controllers\ProfileController;
 
 // =====================
@@ -14,6 +15,7 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/menu', [FrontMenuController::class, 'index'])->name('menu.index');
 Route::get('/menu/{menu}', [FrontMenuController::class, 'show'])->name('menu.show');
+Route::get('/about', [FrontAboutController::class, 'index'])->name('about.index');
 
 // =====================
 // Backoffice (prefix + middleware)
@@ -30,6 +32,8 @@ Route::prefix('backoffice')
 
         // Manajemen menu (konten kuliner)
         Route::resource('menus', BackendMenuController::class)->names('menus');
+
+        Route::resource('about', \App\Http\Controllers\Backend\AboutController::class);
     });
 
 // =====================

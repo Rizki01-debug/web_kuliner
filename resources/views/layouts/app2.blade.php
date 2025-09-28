@@ -11,14 +11,14 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="{{ asset('build/restoran/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset(path: 'build/restoran/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('buildrestoran/css/style.css') }}">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
-            @include('partial.headernav')
+            @include('partial.headernav2')
 
             <!-- Page Heading -->
             @isset($header)
