@@ -17,17 +17,9 @@
                         <a href="{{ route('about.index') }}" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Service</a>
                         <a href="{{ route('menu.index') }}" class="nav-item nav-link">Menu</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="booking.html" class="dropdown-item">Booking</a>
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            </div>
-                        </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                     <img class="img-fluid" href="{{ asset(path: 'build/restoran/img/hero.png') }} alt="">
+                    <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
                 </div>
             </nav>
         <!-- Navbar & Hero End -->

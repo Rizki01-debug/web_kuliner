@@ -164,8 +164,10 @@
           <i class="fas fa-file-alt"></i> Content
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Pages</a></li>
-          <li><a class="dropdown-item" href="{{ route('backoffice.about.index') }}">About</a></li>
+          <li><a class="dropdown-item {{ request()->routeIs('backoffice.footer.*') ? 'active' : '' }}" 
+          href="{{ route('backoffice.footer.index') }}">Footer</a></li>
+          <li><a class="dropdown-item {{ request()->routeIs('backoffice.about.*') ? 'active' : '' }}" 
+           href="{{ route('backoffice.about.index') }}">About</a></li>
           <li><a class="dropdown-item" href="#">Media</a></li>
         </ul>
       </li>

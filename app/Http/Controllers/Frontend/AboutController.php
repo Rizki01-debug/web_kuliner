@@ -10,7 +10,7 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $about = About::first();
+        $about = About::all();
         return view('frontend.about.index', compact('about'));
     }
 }

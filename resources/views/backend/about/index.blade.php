@@ -1,25 +1,45 @@
 @extends('layouts.backend')
 
-@section('title','Tambah About')
+@section('title', 'About Management')
 
 @section('content')
-<h2>Tambah About</h2>
+<h2>About Management</h2>
 
-<form action="{{ route('backoffice.about.store') }}" method="POST" enctype="multipart/form-data">
-  @csrf
-  <div class="mb-3">
-    <label>Judul</label>
-    <input type="text" name="title" class="form-control" required>
-  </div>
-  <div class="mb-3">
-    <label>Deskripsi</label>
-    <textarea name="description" class="form-control" rows="4" required></textarea>
-  </div>
-  <div class="mb-3">
-    <label>Gambar</label>
-    <input type="file" name="image" class="form-control">
-  </div>
-  <button class="btn btn-success">Simpan</button>
-  <a href="{{ route('backoffice.about.index') }}" class="btn btn-secondary">Batal</a>
-</form>
+<a href="{{ route('backoffice.about.create') }}" class="btn btn-primary mb-3">Tambah About</a>
+
+@if(session('success'))
+  <div class="alert alert-success">{{ session('success') }}</div>
+@endif
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Judul</th>
+      <th>Deskripsi</th>
+      <th>Gambar</th>
+      <th>Aksi</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach($abouts as $about)
+      <tr>
+        <td>{{ $about->title }}</td>
+        <td>{{ Str::limit($about->description, 50) }}</td>
+        <td>
+          @if($about->image)
+            <img src="{{ asset('storage/'.$about->image) }}" alt="" width="100">
+          @endif
+        </td>
+        <td>
+          <a href="{{ route('backoffice.about.edit', $about) }}" class="btn btn-warning btn-sm">Edit</a>
+          <form action="{{ route('backoffice.about.destroy', $about) }}" method="POST" style="display:inline-block">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin?')">Hapus</button>
+          </form>
+        </td>
+      </tr>
+    @endforeach
+  </tbody>
+</table>
 @endsection

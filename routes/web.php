@@ -6,7 +6,9 @@ use App\Http\Controllers\Frontend\MenuController as FrontMenuController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\MenuController as BackendMenuController;
+use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Frontend\AboutController as FrontAboutController;
+use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\ProfileController;
 
 // =====================
@@ -33,7 +35,9 @@ Route::prefix('backoffice')
         // Manajemen menu (konten kuliner)
         Route::resource('menus', BackendMenuController::class)->names('menus');
 
-        Route::resource('about', \App\Http\Controllers\Backend\AboutController::class);
+         Route::resource('about', AboutController::class);
+
+         Route::resource('footer', FooterController::class);
     });
 
 // =====================

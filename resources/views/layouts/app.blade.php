@@ -35,4 +35,5 @@
             </main>
         </div>
     </body>
+    @extends('partial.footer')
 </html>

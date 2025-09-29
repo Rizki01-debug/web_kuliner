@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.app2')
 
 @section('title', $menu->title)
 
