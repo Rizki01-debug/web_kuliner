@@ -1,5 +1,5 @@
-       <link rel="stylesheet" href="{{ asset('restoran/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('restoran/css/style.css') }}">
+       <link rel="stylesheet" href="{{ asset('build/restoran/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/restoran/css/style.css') }}">
        
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">

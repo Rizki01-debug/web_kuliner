@@ -77,7 +77,7 @@
     @endif
 </div>
 
-<style>
+{{-- <style>
     .card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         border-radius: 15px;
@@ -99,7 +99,7 @@
         background: linear-gradient(45deg, #0056b3, #004494);
         transform: translateY(-1px);
     }
-</style>
+</style> --}}
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

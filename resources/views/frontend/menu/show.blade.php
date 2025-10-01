@@ -3,6 +3,27 @@
 @section('title', $menu->title)
 
 @section('content')
+
+    <!-- Hero Start -->
+    <div class="container-fluid bg-dark hero-header mb-5">
+        <div class="container py-5">
+            <div class="row justify-content-center py-5">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-4 text-white mb-4 animated slideInDown">Menu</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center mb-0 animated slideInDown">
+                            <li class="breadcrumb-item">
+                                <a href="{{ url('/') }}" class="text-white text-decoration-none">Home</a>
+                            </li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero End -->
+
 <div class="row">
   <div class="col-md-6">
     @if($menu->image)

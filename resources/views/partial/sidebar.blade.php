@@ -168,7 +168,8 @@
           href="{{ route('backoffice.footer.index') }}">Footer</a></li>
           <li><a class="dropdown-item {{ request()->routeIs('backoffice.about.*') ? 'active' : '' }}" 
            href="{{ route('backoffice.about.index') }}">About</a></li>
-          <li><a class="dropdown-item" href="#">Media</a></li>
+          <li><a class="dropdown-item {{ request()->routeIs('backoffice.about.*') ? 'active' : '' }}" 
+            href="{{ route('backoffice.services.index') }}">Services</a></li>
         </ul>
       </li>
       

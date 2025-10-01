@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\MenuController as BackendMenuController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Frontend\AboutController as FrontAboutController;
 use App\Http\Controllers\Backend\FooterController;
+use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\ProfileController;
 
 // =====================
@@ -38,6 +39,9 @@ Route::prefix('backoffice')
          Route::resource('about', AboutController::class);
 
          Route::resource('footer', FooterController::class);
+
+         Route::resource('services', ServiceController::class);
+
     });
 
 // =====================
