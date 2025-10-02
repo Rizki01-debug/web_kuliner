@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\MenuController as FrontMenuController;
+use App\Http\Controllers\Frontend\ServiceController as FrontServiceController;
+use App\Http\Controllers\Frontend\AboutController as FrontAboutController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\MenuController as BackendMenuController;
 use App\Http\Controllers\Backend\AboutController;
-use App\Http\Controllers\Frontend\AboutController as FrontAboutController;
 use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\ProfileController;
@@ -19,6 +20,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/menu', [FrontMenuController::class, 'index'])->name('menu.index');
 Route::get('/menu/{menu}', [FrontMenuController::class, 'show'])->name('menu.show');
 Route::get('/about', [FrontAboutController::class, 'index'])->name('about.index');
+Route::get('/services', [FrontServiceController::class, 'index'])->name('services.index');
+Route::get('/services/{service}', [FrontServiceController::class, 'show'])->name('services.show');
 
 // =====================
 // Backoffice (prefix + middleware)
@@ -40,7 +43,7 @@ Route::prefix('backoffice')
 
          Route::resource('footer', FooterController::class);
 
-         Route::resource('services', ServiceController::class);
+        Route::resource('services', ServiceController::class);
 
     });
 

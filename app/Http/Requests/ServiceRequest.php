@@ -14,10 +14,10 @@ class ServiceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
+            'title'       => 'required|string|max:255',
             'description' => 'nullable|string',
-            'icon' => 'nullable|string|max:255', // bisa juga file upload
-            'is_active' => 'nullable|boolean',
+            'icon'        => 'nullable|image|mimes:jpg,jpeg,png,svg,gif|max:2048',
+            'is_active'   => 'boolean',
         ];
     }
 }

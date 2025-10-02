@@ -173,11 +173,6 @@
         </ul>
       </li>
       
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="fas fa-cog"></i> Settings
-        </a>
-      </li>
     </ul>
     
     <div class="sidebar-footer">

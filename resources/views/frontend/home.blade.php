@@ -77,30 +77,6 @@
     @endif
 </div>
 
-{{-- <style>
-    .card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 15px;
-    }
-    
-    .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
-    }
-    
-    .btn-primary {
-        background: linear-gradient(45deg, #007bff, #0056b3);
-        border: none;
-        border-radius: 8px;
-        padding: 0.5rem 1.5rem;
-    }
-    
-    .btn-primary:hover {
-        background: linear-gradient(45deg, #0056b3, #004494);
-        transform: translateY(-1px);
-    }
-</style> --}}
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Animasi kartu saat dimuat

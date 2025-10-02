@@ -36,10 +36,12 @@
                             </td>
                             <td>
                                 <a href="{{ route('backoffice.services.edit', $service) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('services.destroy', $service) }}" method="POST" class="d-inline">
-                                    @csrf @method('DELETE')
-                                    <button onclick="return confirm('Yakin hapus?')" class="btn btn-danger btn-sm">Hapus</button>
-                                </form>
+<form action="{{ route('backoffice.services.destroy', $service) }}" method="POST" class="d-inline">
+    @csrf
+    @method('DELETE')
+    <button onclick="return confirm('Yakin hapus?')" class="btn btn-danger btn-sm">Hapus</button>
+</form>
+
                             </td>
                         </tr>
                     @empty
