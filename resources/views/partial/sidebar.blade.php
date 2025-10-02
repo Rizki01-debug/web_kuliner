@@ -170,6 +170,8 @@
            href="{{ route('backoffice.about.index') }}">About</a></li>
           <li><a class="dropdown-item {{ request()->routeIs('backoffice.about.*') ? 'active' : '' }}" 
             href="{{ route('backoffice.services.index') }}">Services</a></li>
+                      <li><a class="dropdown-item {{ request()->routeIs('backoffice.newsletter.*') ? 'active' : '' }}" 
+            href="{{ route('backoffice.newsletter.index') }}">Newsletter</a></li>
         </ul>
       </li>
       

@@ -18,7 +18,6 @@
                         <a href="{{ route('services.index') }}" class="nav-item nav-link">Service</a>
                         <a href="{{ route('menu.index') }}" class="nav-item nav-link">Menu</a>
                     </div>
-                    <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
                 </div>
             </nav>
         <!-- Navbar & Hero End -->

@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\MenuController as BackendMenuController;
 use App\Http\Controllers\Backend\AboutController;
 use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\Backend\ServiceController;
+use App\Http\Controllers\Backend\NewsletterController;
 use App\Http\Controllers\ProfileController;
 
 // =====================
@@ -22,6 +23,7 @@ Route::get('/menu/{menu}', [FrontMenuController::class, 'show'])->name('menu.sho
 Route::get('/about', [FrontAboutController::class, 'index'])->name('about.index');
 Route::get('/services', [FrontServiceController::class, 'index'])->name('services.index');
 Route::get('/services/{service}', [FrontServiceController::class, 'show'])->name('services.show');
+Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
 // =====================
 // Backoffice (prefix + middleware)
@@ -44,6 +46,9 @@ Route::prefix('backoffice')
          Route::resource('footer', FooterController::class);
 
         Route::resource('services', ServiceController::class);
+
+        Route::get('/newsletter', [NewsletterController::class, 'index'])->name('newsletter.index');
+        Route::delete('/newsletter/{newsletter}', [NewsletterController::class, 'destroy'])->name('newsletter.destroy');
 
     });
 

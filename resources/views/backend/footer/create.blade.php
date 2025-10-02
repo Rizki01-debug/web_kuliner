@@ -49,6 +49,14 @@
                 </div>
 
                 <div class="mb-3">
+    <label class="form-label">Newsletter Email</label>
+    <input type="email" name="newsletter_email" 
+           value="{{ old('newsletter_email', $footer->newsletter_email ?? '') }}" 
+           class="form-control">
+</div>
+
+
+                <div class="mb-3">
                     <label for="facebook" class="form-label">Facebook</label>
                     <input type="text" name="facebook" id="facebook" class="form-control"
                         value="{{ old('facebook') }}">

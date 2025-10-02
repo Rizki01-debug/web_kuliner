@@ -13,6 +13,7 @@
             <tr><th>Address</th><td>{{ $footer->address }}</td></tr>
             <tr><th>Phone</th><td>{{ $footer->phone }}</td></tr>
             <tr><th>Email</th><td>{{ $footer->email }}</td></tr>
+            <tr><th>Newsletter Email</th><td>{{ $footer->newsletter_email }}</td></tr>
             <tr><th>Open Hours</th><td>{{ $footer->open_hours }}</td></tr>
             <tr><th>Facebook</th><td>{{ $footer->facebook }}</td></tr>
             <tr><th>Instagram</th><td>{{ $footer->instagram }}</td></tr>
