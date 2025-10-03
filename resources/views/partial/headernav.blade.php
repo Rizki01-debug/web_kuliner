@@ -1,21 +1,26 @@
 <link rel="stylesheet" href="{{ asset('restoran/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('restoran/css/style.css') }}">
+<!-- Bootstrap Bundle dengan Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
 
 <!-- Navbar & Hero Start -->
 <div class="container-xxl position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-        <a href="{{ route('home') }}" class="navbar-brand p-0">
-            <h1 class="text-primary m-0">
-                <i class="fa fa-utensils me-3"></i>Restoran
-            </h1>
-            <!-- Kalau pakai logo -->
-            <!-- <img src="{{ asset('restoran/img/logo.png') }}" alt="Logo"> -->
-        </a>
+<a href="{{ route('home') }}" class="navbar-brand p-0">
+    <h1 class="text-primary m-0">
+        {{ $footer->title ?? 'KulinerCMS' }}
+    </h1>
+    <!-- Kalau pakai logo -->
+    <!-- <img src="{{ asset('build/restoran/img/logo.png') }}" alt="Logo"> -->
+</a>
 
         <!-- Toggler untuk mobile -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fa fa-bars"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -41,10 +46,13 @@
                     </p>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                <img class="img-fluid" src="{{ asset('build/restoran/img/nasi-goreng.png') }}" alt="Hero">
+                    <img class="img-fluid" src="{{ asset('build/restoran/img/nasi-goreng.png') }}" alt="Hero">
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Navbar & Hero End -->
+
+<!-- Tambahkan ini sebelum </body> -->
+<script src="{{ asset('restoran/js/bootstrap.bundle.min.js') }}"></script>

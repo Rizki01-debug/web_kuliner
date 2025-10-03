@@ -24,17 +24,31 @@
     </div>
     <!-- Hero End -->
 
-<div class="row">
-  <div class="col-md-6">
-    @if($menu->image)
-      <img src="{{ asset('storage/' . $menu->image) }}" class="img-fluid" alt="">
-    @endif
-  </div>
-  <div class="col-md-6">
-    <h1>{{ $menu->title }}</h1>
-    <p>{{ $menu->description }}</p>
-    <h4>Rp {{ number_format($menu->price,0,',','.') }}</h4>
-    <a href="{{ route('menu.index') }}" class="btn btn-secondary">Kembali</a>
-  </div>
-</div>
+    <!-- Menu Detail Start -->
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            
+            <!-- Image -->
+            <div class="col-md-6">
+                @if($menu->image)
+                    <img src="{{ asset('storage/' . $menu->image) }}" 
+                         class="img-fluid rounded shadow-sm" 
+                         alt="{{ $menu->title }}">
+                @endif
+            </div>
+
+            <!-- Content -->
+            <div class="col-md-6">
+                <h1 class="mb-3">{{ $menu->title }}</h1>
+                <p class="mb-4">{{ $menu->description }}</p>
+                <h4 class="text-primary mb-4">Rp {{ number_format($menu->price, 0, ',', '.') }}</h4>
+
+                <a href="{{ route('menu.index') }}" class="btn btn-secondary">
+                    <i class="fa fa-arrow-left me-2"></i> Kembali
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- Menu Detail End -->
+
 @endsection

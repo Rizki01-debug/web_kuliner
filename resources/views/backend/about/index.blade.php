@@ -1,3 +1,4 @@
+<main>
 @extends('layouts.backend')
 
 @section('title', 'About Management')
@@ -43,3 +44,4 @@
   </tbody>
 </table>
 @endsection
+</main>

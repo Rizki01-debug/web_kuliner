@@ -27,6 +27,17 @@
                 @method('PUT')
 
                 <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="title" id="title" class="form-control"
+                        value="{{ old('title', $footer->title) }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" rows="3" class="form-control">{{ old('description', $footer->description) }}</textarea>
+                </div>
+
+                <div class="mb-3">
                     <label for="about" class="form-label">About</label>
                     <textarea name="about" id="about" rows="3" class="form-control">{{ old('about', $footer->about) }}</textarea>
                 </div>
@@ -50,12 +61,18 @@
                 </div>
 
                 <div class="mb-3">
-    <label class="form-label">Newsletter Email</label>
-    <input type="email" name="newsletter_email" 
-           value="{{ old('newsletter_email', $footer->newsletter_email ?? '') }}" 
-           class="form-control">
-</div>
+                    <label for="newsletter_email" class="form-label">Newsletter Email</label>
+                    <input type="email" name="newsletter_email" id="newsletter_email"
+                        value="{{ old('newsletter_email', $footer->newsletter_email ?? '') }}" 
+                        class="form-control">
+                </div>
 
+                <div class="mb-3">
+                    <label for="open_hours" class="form-label">Jam Operasional</label>
+                    <input type="text" name="open_hours" id="open_hours" class="form-control"
+                        placeholder="Contoh: Senin - Minggu, 08:00 - 22:00"
+                        value="{{ old('open_hours', $footer->open_hours) }}">
+                </div>
 
                 <div class="mb-3">
                     <label for="facebook" class="form-label">Facebook</label>
