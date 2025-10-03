@@ -1,0 +1,174 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #34495e;
+    --accent: #3498db;
+    --light: #ecf0f1;
+    --dark: #2c3e50;
+    --success: #27ae60;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+    --text: #2c3e50;
+    --text-muted: #7f8c8d;
+    --border: #bdc3c7;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text);
+}
+
+.dashboard-header {
+    background: white;
+    border-left: 4px solid var(--primary);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-card {
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    overflow: hidden;
+    background: white;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-menu {
+    border-left: 4px solid var(--primary);
+}
+
+.card-newsletter {
+    border-left: 4px solid var(--accent);
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.card-menu .card-icon {
+    color: var(--primary);
+}
+
+.card-newsletter .card-icon {
+    color: var(--accent);
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+}
+
+.card-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--text);
+}
+
+.welcome-text {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.quick-actions {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: 2rem;
+    border: 1px solid var(--border);
+}
+
+.action-btn {
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: 1px solid;
+}
+
+.btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+    background: white;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* Additional simplicity styles */
+.dashboard-header h1 {
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    color: var(--text-muted);
+}
+
+.quick-actions h4 {
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dashboard-header {
+        padding: 1.5rem;
+    }
+    
+    .card-value {
+        font-size: 1.75rem;
+    }
+    
+    .card-icon {
+        font-size: 1.75rem;
+    }
+    
+    .action-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-header {
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .quick-actions {
+        padding: 1rem;
+    }
+}

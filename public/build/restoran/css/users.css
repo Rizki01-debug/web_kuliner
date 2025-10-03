@@ -1,0 +1,111 @@
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+        }
+        
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .table thead th {
+            background-color: #1a1d28;
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-weight: 600;
+        }
+        
+        .table tbody td {
+            padding: 1rem;
+            vertical-align: middle;
+            border-color: #e9ecef;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .badge-admin {
+            background: linear-gradient(135deg, #198754 0%, #146c43 100%);
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+        }
+        
+        .badge-user {
+            background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+        }
+        
+        .action-buttons .btn {
+            padding: 0.3rem 0.8rem;
+            margin: 0 0.15rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        
+        .page-title {
+            color: #1a1d28;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-subtitle {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pagination {
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .page-link {
+            border: none;
+            border-radius: 8px;
+            margin: 0 0.2rem;
+            color: #1a1d28;
+            font-weight: 500;
+        }
+        
+        .page-item.active .page-link {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #6c757d;
+        }
+        
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #dee2e6;
+        }
